@@ -1,0 +1,199 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243, 243, 243);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 400;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 800px;
+}
+
+.todos-container.show,
+.inputfield-container.show {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.inputfield-container > form > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.75rem;
+}
+
+.single-todo > form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 2rem;
+  font-size: 1.75rem;
+}
+
+.single-todo > form > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.single-todo > form > div > span {
+  word-wrap: break-word;
+  width: 650px;
+}
+
+.single-todo > form > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 171, 171);
+  transition: 0.25s all;
+  cursor: pointer;
+}
+
+.single-todo > form > span:hover {
+  color: rgb(255, 53, 53);
+}
+
+.todo-settings-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0.25rem 2rem;
+}
+
+.display-button-group {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.display-button-group > button,
+.clear-button > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.display-button-group > button.active {
+  border: 1px solid rgb(255, 102, 102);
+  border-radius: 5px;
+  margin-right: -1px;
+  margin-left: -1px;
+}
+
+.clear-button {
+  justify-self: flex-end;
+}
+
+.single-todo > form > div > input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.single-todo > form > div > input[type="checkbox"]:checked {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.single-todo > form > div > input[type="checkbox"]:checked::before {
+  content: "\2713";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #fff;
+}
